@@ -1,5 +1,4 @@
-# Burundi
-## Joint Mid-term Evaluation of the Search-IPIS DGD Programme
+## Joint Mid-term Evaluation of the Search-IPIS DGD Programme (Burundi)
 
 This code is working based on four Python scripts (bodhi_PMF.py, bodhi_data_analysis.py, bodhi_data_preprocessing.py, bodhi_indicator.py)
 
