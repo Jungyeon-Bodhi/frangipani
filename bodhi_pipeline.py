@@ -31,19 +31,19 @@ def statistics(df, indicators):
                        "56+"])
     indicators.append(age)
     
-    sex = bd.Indicator(df, "Respondent Sex", 0, ['3'], i_cal=None, i_type='count', description='Respondent Sex', period='midline', target = None)
-    sex.add_breakdown({'1':'Category', "Age Group":"Age Group"})
-    sex.add_var_order(["Female",
-                       "Male"])
-    indicators.append(sex)
-    
     province = bd.Indicator(df, "Respondent Province", 0, ['4'], i_cal=None, i_type='count', description='Respondent Province', period='midline', target = None)
-    province.add_breakdown({'1':'Category', "Age Group":"Age Group", "3":"Sex"})
+    province.add_breakdown({'1':'Category', "Age Group":"Age Group"})
     province.add_var_order(["Muyinga",
                             "Makamba",
                             "Rumonge",
                             "Kayanza"])
     indicators.append(province)
+    
+    sex = bd.Indicator(df, "Respondent Sex", 0, ['3'], i_cal=None, i_type='count', description='Respondent Sex', period='midline', target = None)
+    sex.add_breakdown({'1':'Category', "Age Group":"Age Group", "4":"Province"})
+    sex.add_var_order(["Female",
+                       "Male"])
+    indicators.append(sex)
     
     community = bd.Indicator(df, "Respondent Community", 0, ['5'], i_cal=None, i_type='count', description='Respondent Community', period='midline', target = None, visual=False)
     community.add_breakdown({'1':'Category', "Age Group":"Age Group", "3":"Sex", "4":"Province"})
@@ -73,6 +73,15 @@ def statistics(df, indicators):
     civil_group.add_breakdown({'1':'Category', "Age Group":"Age Group", "3":"Sex", "4":"Province", "Disability":"Disability"})
     civil_group.add_var_order(["Yes","No"])
     indicators.append(civil_group)   
+    
+    safe = bd.Indicator(df, "Feel_Safe", 0, ['feel_safe'], i_cal=None, i_type='count', description="Feel Safe Indicator", period='midline', target = None)
+    safe.add_breakdown({'1':'Category', "Age Group":"Age Group", "3":"Sex", "4":"Province", "Disability":"Disability"})
+    safe.add_var_order(["Very safe",
+                        "Safe",
+                        "Moderate",
+                        "Unsafe",
+                        "Not at all safe"])
+    indicators.append(safe)  
     
     lnd12 = bd.Indicator(df, "lnd.1.2", 0, ['21'], i_cal=None, i_type='count', description="Ind.1.2: % of listeners (M/F) of media programs produced within the framework of the project who demonstrate \ntheir support for the inclusion of women in the economy and for gender equality, compared to non-listeners", period='midline', target = None)
     lnd12.add_breakdown({'1':'Category', "Age Group":"Age Group", "3":"Sex", "4":"Province", "Disability":"Disability"})

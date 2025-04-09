@@ -394,6 +394,12 @@ class Preprocessing:
         df["Ind2.1"] = df['27'].map(lambda x: "Adequate" if x in ["Strongly agree", "Agree"] else ("Inadequate" if x in ["Disagree", "Strongly disagree", "Unsure"] else pd.NA))
         df["Ind2.2"] = df['29'].map(lambda x: "Adequate" if x == "Increased" else ("Inadequate" if x in ["Reduced", "Remains unchanged"] else pd.NA))
         df["Ind2.3"] = df['32'].map(lambda x: "Adequate" if x in ["Yes, much better", "Yes, a bit better"] else ("Inadequate" if x in ["No, my network has remained the same", "I don’t have a network"] else pd.NA))
+        safety_map = {5: 'Very safe',
+                          4: 'Safe',
+                          3: 'Moderate',
+                          2: 'Unsafe',
+                          1: 'Not at all safe'}
+        df['feel_safe'] = df['36'].map(safety_map)
         self.df = df
 
     def processing(self):

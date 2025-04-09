@@ -41,7 +41,7 @@ cols_new = ['start','end','today','deviceid', "E1", 'E2', 'E3',
  '_notes', '_status', '_submitted_by', '__version__', '_tags', '_index']
 # Specify new column names for data analysis (ensure they match the exact order of the existing columns)
 
-list_del_cols = ['start','end','today','deviceid', "E1", 'E2', 'E3', 'E4-1', 'E4-2',]
+list_del_cols = ['start','end','today','deviceid', "E1", 'E2', 'E3']
 # Specify the columns to be excluded from the data analysis
 
 miss_col = ["1", '3', '4' ,'6', '12', '13', '14', '15', '16', '17','18','19']
